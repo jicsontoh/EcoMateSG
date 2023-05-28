@@ -1,4 +1,5 @@
 import 'package:ecomatesg/Icons/change_color.dart';
+import 'package:ecomatesg/scan_qr.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:circular_chart_flutter/circular_chart_flutter.dart';
@@ -113,7 +114,7 @@ class _HomePageState extends State<HomePage> {
             // right: deviceWidth(context) * 0.1,
             ),
             child: const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Column(
                   children: [
@@ -186,41 +187,50 @@ class _HomePageState extends State<HomePage> {
                   ],
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(width: 2, color: Colors.black38),
-                borderRadius: const BorderRadius.all(Radius.circular(20)),
-              ),
-              width: deviceWidth(context) * 0.33,
-              height: deviceWidth(context) * 0.33,
-              // alignment: Alignment.topCenter,
-              margin: EdgeInsets.only(
-                top: deviceHeight(context) * 0.02,
-                bottom: deviceHeight(context) * 0.05,
-                left: deviceWidth(context) * 0.03,
-                right: deviceWidth(context) * 0.03,
-              ),
-              padding: EdgeInsets.only(
-                top: deviceHeight(context) * 0.02,
-                bottom: deviceHeight(context) * 0.02,
-                left: deviceWidth(context) * 0.05,
-                right: deviceWidth(context) * 0.05,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.directions_bus_rounded,
-                    size: deviceWidth(context) * 0.1,
-                  ),
-                  SizedBox(height: deviceHeight(context) * 0.01,),
-                  const Text('Public Transport',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: textColour,
-                          fontFamily: 'NotoSans')),
-                ],
+            InkWell(
+              onTap: () {
+                print("Click event on Container");
+                Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => const ScanQRPage()),
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(width: 2, color: Colors.black38),
+                  borderRadius: const BorderRadius.all(Radius.circular(20)),
+                ),
+                width: deviceWidth(context) * 0.33,
+                height: deviceWidth(context) * 0.33,
+                // alignment: Alignment.topCenter,
+                margin: EdgeInsets.only(
+                  top: deviceHeight(context) * 0.02,
+                  bottom: deviceHeight(context) * 0.05,
+                  left: deviceWidth(context) * 0.03,
+                  right: deviceWidth(context) * 0.03,
+                ),
+                padding: EdgeInsets.only(
+                  top: deviceHeight(context) * 0.02,
+                  bottom: deviceHeight(context) * 0.02,
+                  left: deviceWidth(context) * 0.05,
+                  right: deviceWidth(context) * 0.05,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.directions_bus_rounded,
+                      size: deviceWidth(context) * 0.1,
+                    ),
+                    SizedBox(height: deviceHeight(context) * 0.01,),
+                    const Text('Public Transport',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: textColour,
+                            fontFamily: 'NotoSans')),
+                  ],
+                ),
               ),
             ),
+
 
           ],
         ),
@@ -291,37 +301,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  // Widget progressBar() {
-  //   return AnimatedCircularChart(
-  //     key: _chartKey,
-  //     size: _chartSize,
-  //     initialChartData: <CircularStackEntry>[
-  //       CircularStackEntry(
-  //         <CircularSegmentEntry>[
-  //           CircularSegmentEntry(
-  //             33.33,
-  //             Colors.blue[400],
-  //             rankKey: 'completed',
-  //           ),
-  //           CircularSegmentEntry(
-  //             66.67,
-  //             Colors.blueGrey[600],
-  //             rankKey: 'remaining',
-  //           ),
-  //         ],
-  //         rankKey: 'progress',
-  //       ),
-  //     ],
-  //     chartType: CircularChartType.Radial,
-  //     percentageValues: true,
-  //     holeLabel: '1/3',
-  //     labelStyle: TextStyle(
-  //       color: Colors.blueGrey[600],
-  //       fontWeight: FontWeight.bold,
-  //       fontSize: 24.0,
-  //     ),
-  //   );
-  // }
+
 
   void _changeWidgets() {
     setState(() {
