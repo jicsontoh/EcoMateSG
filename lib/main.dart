@@ -1,7 +1,17 @@
 import 'package:ecomatesg/home_page.dart';
+import 'package:ecomatesg/sign_in.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(App());
 }
 
@@ -14,7 +24,7 @@ class App extends StatelessWidget {
       theme:  ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: HomePage(),
+      home: LoginPage(),
     );
   }
 }

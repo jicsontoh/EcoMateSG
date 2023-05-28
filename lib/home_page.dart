@@ -1,5 +1,7 @@
 import 'package:ecomatesg/Icons/change_color.dart';
 import 'package:ecomatesg/scan_qr.dart';
+import 'package:ecomatesg/sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:circular_chart_flutter/circular_chart_flutter.dart';
@@ -62,6 +64,21 @@ class _HomePageState extends State<HomePage> {
   ];
 
   var change = false;
+
+  Future<void> _logout() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+
+      if (context.mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => LoginPage()),
+        );
+      }
+    } catch (e) {
+      print('Error logging out: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -230,10 +247,12 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-
-
           ],
         ),
+        ElevatedButton(
+          onPressed: _logout,
+          child: const Text('Logout'),
+        )
 
         // Row(
         //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

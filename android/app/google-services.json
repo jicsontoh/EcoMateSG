@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1061875712114",
+    "project_id": "ecomatesg-d7cb4",
+    "storage_bucket": "ecomatesg-d7cb4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061875712114:android:6382501010aa3d167642eb",
+        "android_client_info": {
+          "package_name": "com.example.ecomatesg"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjBrHya4knf_GNImohHPpPHnVetgFG8oo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
