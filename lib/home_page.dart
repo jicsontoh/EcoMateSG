@@ -57,34 +57,50 @@ class _HomePageState extends State<HomePage> {
               border: Border.all(width: 2, color: Colors.black38),
               borderRadius: const BorderRadius.all(Radius.circular(20)),
             ),
-            // alignment: Alignment.topCenter,
-            margin: EdgeInsets.only(top: deviceHeight(context) * 0.02,
-                bottom: deviceHeight(context) * 0.05,
-                left: deviceWidth(context) * 0.03,
-                right: deviceWidth(context) * 0.03,
-            ),
+            width: deviceWidth(context) * 0.9,
+            height: deviceHeight(context) * 0.28,
+            margin: EdgeInsets.all(deviceWidth(context) * 0.06),
             padding: EdgeInsets.only(
               top: deviceHeight(context) * 0.02,
-            bottom: deviceHeight(context) * 0.12,
-            // left: deviceWidth(context) * 0.1,
-            // right: deviceWidth(context) * 0.1,
+            bottom: deviceHeight(context) * 0.1,
+            left: deviceWidth(context) * 0.08,
+            right: deviceWidth(context) * 0.08,
             ),
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                   children: [
-                    Text('Carbon Emission:',
+                    const Text('Carbon Emission:',
+                        textAlign: TextAlign.left,
                         style: TextStyle(color: textColour,
                             fontFamily: 'NotoSans')),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    const Row(
                       children: [
                         Icon(
                           Icons.energy_savings_leaf,
                           color: Colors.greenAccent,
                         ),
                         Text('10kg',
+                            style: TextStyle(color: textColour,
+                                fontFamily: 'NotoSans')),
+                      ],
+                    ),
+                    SizedBox(
+                      height: deviceHeight(context) * 0.03,
+                    ),
+                    const Text('Total Points:',
+                        style: TextStyle(color: textColour,
+                            fontFamily: 'NotoSans')),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Icon(
+                          Icons.star,
+                          color: Colors.yellow,
+                        ),
+                        Text('88',
+                            textAlign: TextAlign.left,
                             style: TextStyle(color: textColour,
                                 fontFamily: 'NotoSans')),
                       ],
@@ -110,30 +126,37 @@ class _HomePageState extends State<HomePage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(width: 2, color: Colors.black38),
-                borderRadius: const BorderRadius.all(Radius.circular(20)),
-              ),
-              width: deviceWidth(context) * 0.33,
-              height: deviceWidth(context) * 0.33,
-              // alignment: Alignment.topCenter,
-              margin: EdgeInsets.only(
-                top: deviceHeight(context) * 0.02,
-                bottom: deviceHeight(context) * 0.05,
-                left: deviceWidth(context) * 0.03,
-                right: deviceWidth(context) * 0.03,
-              ),
-              padding: EdgeInsets.only(
-                top: deviceHeight(context) * 0.02,
-                bottom: deviceHeight(context) * 0.02,
-                left: deviceWidth(context) * 0.05,
-                right: deviceWidth(context) * 0.05,
-              ),
-              child: Column(
+            InkWell(
+              onTap: () {
+                print("Click event on Container");
+                Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => const ScanQRPage()),
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(width: 2, color: Colors.black38),
+                  borderRadius: const BorderRadius.all(Radius.circular(20)),
+                ),
+                width: deviceWidth(context) * 0.33,
+                height: deviceWidth(context) * 0.33,
+                // alignment: Alignment.topCenter,
+                margin: EdgeInsets.only(
+                  top: deviceHeight(context) * 0.02,
+                  bottom: deviceHeight(context) * 0.05,
+                  left: deviceWidth(context) * 0.03,
+                  right: deviceWidth(context) * 0.03,
+                ),
+                padding: EdgeInsets.only(
+                  top: deviceHeight(context) * 0.02,
+                  bottom: deviceHeight(context) * 0.02,
+                  left: deviceWidth(context) * 0.05,
+                  right: deviceWidth(context) * 0.05,
+                ),
+                child: Column(
                   children: [
                     Icon(Icons.leave_bags_at_home_rounded,
-                    size: deviceWidth(context) * 0.1,
+                      size: deviceWidth(context) * 0.1,
                     ),
                     SizedBox(height: deviceHeight(context) * 0.02,),
                     const Text('Plastic Bag',
@@ -141,6 +164,7 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(color: textColour,
                             fontFamily: 'NotoSans')),
                   ],
+                ),
               ),
             ),
             InkWell(
