@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo App 2',
+        title: 'Home Page',
         home: Scaffold(
           appBar: AppBar(
             title: const Text('EcoMateSG',
@@ -81,59 +81,150 @@ class _HomePageState extends State<HomePage> {
     return Container(
       color: Colors.white,
       child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Container(
+              margin: EdgeInsets.only(top: deviceHeight(context) * 0.02,
+                left: deviceWidth(context) * 0.04,
+              ),
+              child: const Text('Hello, welcome back!',
+                  style: TextStyle(
+                      fontSize: 22,
+                      color: textColour,
+                      fontFamily: 'NotoSans')),
+            ),
+
           // Top Dashboard
           Container(
-          decoration: BoxDecoration(
-            border: Border.all(width: 2, color: Colors.black38),
-            borderRadius: const BorderRadius.all(Radius.circular(20)),
+            decoration: BoxDecoration(
+              border: Border.all(width: 2, color: Colors.black38),
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
+            ),
+            // alignment: Alignment.topCenter,
+            margin: EdgeInsets.only(top: deviceHeight(context) * 0.02,
+                bottom: deviceHeight(context) * 0.05,
+                left: deviceWidth(context) * 0.03,
+                right: deviceWidth(context) * 0.03,
+            ),
+            padding: EdgeInsets.only(
+              top: deviceHeight(context) * 0.02,
+            bottom: deviceHeight(context) * 0.12,
+            // left: deviceWidth(context) * 0.1,
+            // right: deviceWidth(context) * 0.1,
+            ),
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: [
+                    Text('Carbon Emission:',
+                        style: TextStyle(color: textColour,
+                            fontFamily: 'NotoSans')),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Icon(
+                          Icons.energy_savings_leaf,
+                          color: Colors.greenAccent,
+                        ),
+                        Text('10kg',
+                            style: TextStyle(color: textColour,
+                                fontFamily: 'NotoSans')),
+                      ],
+                    )
+                  ],
+                ),
+                CircularProgressIndicator(
+                  value: 0.5,
+                  semanticsLabel: 'Circular progress indicator',
+                ),
+              ]
+            ),
           ),
-          // alignment: Alignment.topCenter,
-          margin: EdgeInsets.only(top: deviceHeight(context) * 0.05,
-              bottom: deviceHeight(context) * 0.05,
-              left: deviceWidth(context) * 0.03,
-              right: deviceWidth(context) * 0.03,
+        Container(
+            padding: EdgeInsets.only(
+              left: deviceWidth(context) * 0.04
+            ),
+            child: const Text('Track Emissions:',
+                style: TextStyle(fontSize: 18, color: textColour,
+                    fontFamily: 'NotoSans')),
           ),
-          padding: EdgeInsets.only(
-            top: deviceHeight(context) * 0.02,
-          bottom: deviceHeight(context) * 0.12,
-          // left: deviceWidth(context) * 0.1,
-          // right: deviceWidth(context) * 0.1,
-          ),
-          child: const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Column(
+        // Track Emissions
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(width: 2, color: Colors.black38),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
+              ),
+              width: deviceWidth(context) * 0.33,
+              height: deviceWidth(context) * 0.33,
+              // alignment: Alignment.topCenter,
+              margin: EdgeInsets.only(
+                top: deviceHeight(context) * 0.02,
+                bottom: deviceHeight(context) * 0.05,
+                left: deviceWidth(context) * 0.03,
+                right: deviceWidth(context) * 0.03,
+              ),
+              padding: EdgeInsets.only(
+                top: deviceHeight(context) * 0.02,
+                bottom: deviceHeight(context) * 0.02,
+                left: deviceWidth(context) * 0.05,
+                right: deviceWidth(context) * 0.05,
+              ),
+              child: Column(
+                  children: [
+                    Icon(Icons.leave_bags_at_home_rounded,
+                    size: deviceWidth(context) * 0.1,
+                    ),
+                    SizedBox(height: deviceHeight(context) * 0.02,),
+                    const Text('Plastic Bag',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: textColour,
+                            fontFamily: 'NotoSans')),
+                  ],
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(width: 2, color: Colors.black38),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
+              ),
+              width: deviceWidth(context) * 0.33,
+              height: deviceWidth(context) * 0.33,
+              // alignment: Alignment.topCenter,
+              margin: EdgeInsets.only(
+                top: deviceHeight(context) * 0.02,
+                bottom: deviceHeight(context) * 0.05,
+                left: deviceWidth(context) * 0.03,
+                right: deviceWidth(context) * 0.03,
+              ),
+              padding: EdgeInsets.only(
+                top: deviceHeight(context) * 0.02,
+                bottom: deviceHeight(context) * 0.02,
+                left: deviceWidth(context) * 0.05,
+                right: deviceWidth(context) * 0.05,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Carbon Emission:',
-                      style: TextStyle(color: textColour,
+                  Icon(Icons.directions_bus_rounded,
+                    size: deviceWidth(context) * 0.1,
+                  ),
+                  SizedBox(height: deviceHeight(context) * 0.01,),
+                  const Text('Public Transport',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: textColour,
                           fontFamily: 'NotoSans')),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Icon(
-                        Icons.energy_savings_leaf,
-                        color: Colors.greenAccent,
-                      ),
-                      Text('10kg',
-                          style: TextStyle(color: textColour,
-                              fontFamily: 'NotoSans')),
-                    ],
-                  )
                 ],
               ),
-              CircularProgressIndicator(
-                value: 0.5,
-                semanticsLabel: 'Circular progress indicator',
-                semanticsValue: "Test",
-              ),
-            ]
-          ),
+            ),
+
+          ],
         ),
-            const Text('Track Emissions:',
-                style: TextStyle(color: textColour,
-                    fontFamily: 'NotoSans')),
+
         // Row(
         //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         //   crossAxisAlignment: CrossAxisAlignment.center,
