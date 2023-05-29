@@ -56,12 +56,13 @@ class _ScanQRPageState extends State<ScanQRPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Home Page',
+        color: Colors.teaGreen,
         home: Scaffold(
           appBar: AppBar(
             title: const Text('EcoMateSG',
                 style: TextStyle(color: textColour,
                     fontFamily: 'NotoSans')),
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.cornsilk,
           ),
           body: buildContent(),
         ));
@@ -69,56 +70,68 @@ class _ScanQRPageState extends State<ScanQRPage> {
 
   Widget buildContent() {
     return Container(
-      // color: Colors.white,
-      margin: EdgeInsets.all(deviceWidth(context) * 0.1),
-      child: Column(
-        children: [
-          Container(
-            padding: EdgeInsets.only(
-              top: deviceHeight(context) * 0.05,
-                bottom: deviceHeight(context) * 0.03
-            ),
-            child: const Text('Scan QR Code',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 28, color: textColour,
-                    fontFamily: 'NotoSans')),),
-          // Scanner
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(width: 2, color: Colors.black),
-            ),
-            height: deviceHeight(context) * 0.4,
-            width: deviceHeight(context) * 0.4,
-            child: QRView(
-              key: qrKey,
-              onQRViewCreated: _onQRViewCreated,
-            ),
-          ),
-
-          // Upload QR code
-          // Go back button
-          Container(
-            width: deviceWidth(context) * 0.4,
-            padding: EdgeInsets.only(
-                top: deviceHeight(context) * 0.05
-            ),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: textColour,
+      color: Colors.teaGreen,
+      child: Padding(
+        padding: EdgeInsets.all(deviceWidth(context) * 0.1),
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.only(
+                top: deviceHeight(context) * 0.05,
+                bottom: deviceHeight(context) * 0.03,
               ),
-              child: const Text('Return Home',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white,
-                      fontFamily: 'NotoSans')),
+              child: const Text(
+                'Scan QR Code',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 28,
+                  color: textColour,
+                  fontFamily: 'NotoSans',
+                ),
+              ),
             ),
-          ),
 
-        ],
-      )
+            // Scanner
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(width: 2, color: Colors.black),
+              ),
+              height: deviceHeight(context) * 0.4,
+              width: deviceHeight(context) * 0.4,
+              child: QRView(
+                key: qrKey,
+                onQRViewCreated: _onQRViewCreated,
+              ),
+            ),
+
+            // Upload QR code
+
+            // Go back button
+            Container(
+              width: deviceWidth(context) * 0.4,
+              padding: EdgeInsets.only(top: deviceHeight(context) * 0.05),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: textColour,
+                ),
+                child: const Text(
+                  'Return Home',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'NotoSans',
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
+
 
 }
