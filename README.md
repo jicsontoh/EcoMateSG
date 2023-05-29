@@ -13,9 +13,16 @@ Some of the features include:
 
 
 ## Screenshots of our application
-![Login Page](/assets/login_page.jpg)
-![Failed QR Scan](/assets/failed_qr.jpg)
-![Successful QR Scan](/assets/successful_qr.jpg)
+| Login Page                            | Signup Page                           | Home Page                             |
+|---------------------------------------|---------------------------------------|---------------------------------------|
+| ![Login Page](/assets/login_page.jpg) | ![Login Page](/assets/login_page.jpg) | ![Login Page](/assets/login_page.jpg) |
+
+
+| Successful QR Page                               | Failed QR Page                           |
+|--------------------------------------------------|------------------------------------------|
+| ![Successful QR Scan](/assets/successful_qr.jpg) | ![Failed QR Scan](/assets/failed_qr.jpg) |
+
+
 
 
 Sample QR Code for testing:
