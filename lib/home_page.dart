@@ -62,6 +62,7 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: App.cornsilk,
             actions: [
               PopupMenuButton(
+                color: App.cornsilk,
                 icon: Icon(
                   Icons.more_vert,
                   color: Colors.black,
