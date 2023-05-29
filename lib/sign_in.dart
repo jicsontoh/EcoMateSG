@@ -1,3 +1,4 @@
+import 'package:ecomatesg/main.dart';
 import 'package:ecomatesg/sign_up.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -61,9 +62,9 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teaGreen,
+      backgroundColor: App.teaGreen,
       appBar: AppBar(
-        backgroundColor: Colors.cornsilk,
+        backgroundColor: App.cornsilk,
         title: const Text('Login'),
       ),
       body: Padding(
@@ -106,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
             ElevatedButton(
               onPressed: () => _login(context),
               style: ElevatedButton.styleFrom(
-                primary: Colors.papayaWhip,
+                primary: App.papayaWhip,
               ),
               child: const Text('Login'),
             ),

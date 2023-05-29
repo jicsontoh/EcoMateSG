@@ -10,6 +10,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
+import 'main.dart';
+
 class ScanQRPage extends StatefulWidget {
   const ScanQRPage({Key? key}) : super(key: key);
 
@@ -56,13 +58,13 @@ class _ScanQRPageState extends State<ScanQRPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Home Page',
-        color: Colors.teaGreen,
+        color: App.teaGreen,
         home: Scaffold(
           appBar: AppBar(
             title: const Text('EcoMateSG',
                 style: TextStyle(color: textColour,
                     fontFamily: 'NotoSans')),
-            backgroundColor: Colors.cornsilk,
+            backgroundColor: App.cornsilk,
           ),
           body: buildContent(),
         ));
@@ -70,7 +72,7 @@ class _ScanQRPageState extends State<ScanQRPage> {
 
   Widget buildContent() {
     return Container(
-      color: Colors.teaGreen,
+      color: App.teaGreen,
       child: Padding(
         padding: EdgeInsets.all(deviceWidth(context) * 0.1),
         child: Column(
