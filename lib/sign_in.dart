@@ -13,6 +13,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  double deviceHeight(BuildContext context) => MediaQuery.of(context).size.height;
+  double deviceWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
   String _errorMessage = '';
 
@@ -71,6 +73,11 @@ class _LoginPageState extends State<LoginPage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
+            Icon(
+              Icons.energy_savings_leaf,
+              color: Colors.black,
+              size: deviceWidth(context) * 0.3
+            ),
             const Padding(
               padding: EdgeInsets.only(top: 16.0),
               child: Text(
