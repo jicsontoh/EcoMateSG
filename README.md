@@ -18,16 +18,16 @@ Some of the features include:
 | ![Login Page](/assets/login_page.jpg) | ![Login Page](/assets/signup_page.jpg) | ![Login Page](/assets/login_page.jpg) |
 
 
-| Successful QR Page                               | Failed QR Page                           |      |
-|--------------------------------------------------|------------------------------------------|------|
-| ![Successful QR Scan](/assets/successful_qr.jpg) | ![Failed QR Scan](/assets/failed_qr.jpg) |      |
+| Successful QR Page                               | Failed QR Page                           |
+|--------------------------------------------------|------------------------------------------|
+| ![Successful QR Scan](/assets/successful_qr.jpg) | ![Failed QR Scan](/assets/failed_qr.jpg) |      
 
 
 ## Sample QR Code for testing:
 
-| 25 Points QR Code                      | 10 Points QR Code                      |      |
-|----------------------------------------|----------------------------------------|------|
-| ![25 Points](/assets/25_points_qr.jpg) | ![10 Points](/assets/10_points_qr.jpg) |      |
+| 25 Points QR Code                      | 10 Points QR Code                      |
+|----------------------------------------|----------------------------------------|
+| ![25 Points](/assets/25_points_qr.jpg) | ![10 Points](/assets/10_points_qr.jpg) |
 
 ## How to get started
 ### For Android
