@@ -25,7 +25,7 @@ class App extends StatelessWidget {
       theme:  ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: HomePage(),
+      home: LoginPage(),
     );
   }
 }

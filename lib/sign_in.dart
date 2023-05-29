@@ -61,31 +61,53 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.teaGreen,
       appBar: AppBar(
-        title: Text('Login'),
+        backgroundColor: Colors.cornsilk,
+        title: const Text('Login'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextFormField(
-              controller: _emailController,
-              decoration: const InputDecoration(
-                labelText: 'Email',
+            const Padding(
+              padding: EdgeInsets.only(top: 16.0),
+              child: Text(
+                'EcoMateSG',
+                style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontFamily: 'Robotos',
+                ),
               ),
             ),
             const SizedBox(height: 16.0),
-            TextFormField(
-              controller: _passwordController,
-              decoration: const InputDecoration(
-                labelText: 'Password',
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 40.0),
+              child: TextFormField(
+                controller: _emailController,
+                decoration: const InputDecoration(
+                  labelText: 'Email',
+                ),
               ),
-              obscureText: true,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: TextFormField(
+                controller: _passwordController,
+                decoration: const InputDecoration(
+                  labelText: 'Password',
+                ),
+                obscureText: true,
+              ),
             ),
             const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () => _login(context),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.papayaWhip,
+              ),
               child: const Text('Login'),
             ),
             const SizedBox(height: 16.0),
@@ -103,11 +125,15 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 );
               },
+              style: TextButton.styleFrom(
+                primary: Colors.black,
+              ),
               child: const Text('Don\'t have an account? Sign Up'),
-            )
+            ),
           ],
         ),
       ),
     );
+
   }
 }

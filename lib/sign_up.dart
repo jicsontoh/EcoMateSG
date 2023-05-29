@@ -60,28 +60,42 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.teaGreen,
       appBar: AppBar(
+        backgroundColor: Colors.cornsilk,
         title: const Text('Sign Up'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Padding(
+              padding: EdgeInsets.only(top: 16.0),
+              child: Text(
+                'EcoMateSG',
+                style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontFamily: 'Robotos',
+                ),
+              ),
+            ),
+            SizedBox(height: 16.0),
             TextFormField(
               controller: _nameController,
               decoration: const InputDecoration(
                 labelText: 'Name',
               ),
             ),
-            const SizedBox(height: 16.0),
+            SizedBox(height: 16.0),
             TextFormField(
               controller: _emailController,
               decoration: const InputDecoration(
                 labelText: 'Email',
               ),
             ),
-            const SizedBox(height: 16.0),
+            SizedBox(height: 16.0),
             TextFormField(
               controller: _passwordController,
               decoration: const InputDecoration(
@@ -89,26 +103,35 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               obscureText: true,
             ),
-            const SizedBox(height: 16.0),
+            SizedBox(height: 16.0),
             ElevatedButton(
-              onPressed: () { _register(context); },
+              onPressed: () {
+                _register(context);
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.papayaWhip,
+              ),
               child: const Text('Sign Up'),
             ),
-            const SizedBox(height: 16.0),
+            SizedBox(height: 16.0),
             Text(
               _errorMessage,
               style: const TextStyle(color: Colors.red),
             ),
-            const SizedBox(height: 16.0),
+            SizedBox(height: 16.0),
             TextButton(
               onPressed: () {
                 Navigator.pop(context); // Go back to the previous page (login page)
               },
               child: const Text('Already have an account? Sign In'),
+              style: TextButton.styleFrom(
+                primary: Colors.black,
+              ),
             ),
           ],
         ),
       ),
     );
+
   }
 }
