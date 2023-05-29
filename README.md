@@ -7,8 +7,10 @@ The app then stores these information and converts them to a point system which 
 This application is available for both android and ios devices.
 
 Some of the features include:
-- Reducing use of plastic bags
-- Encouraging the use of public transport instead of private vehicles
+- Scan QR Code on receipt to track how many plastic bags saved. This will then be converted to points and will be added to the user's point system. This helps to encourage users to use 
+their own recycle bag when shopping for groceries and reduce the need for plastic bags.
+- To encourage the use of public transport, we will have QR codes pasted on bus stops/train stations which users can scan to track the distance of their travel and how much reduction
+in carbon emission as compared to private vehicle.
 
 ## Video Demonstration of our application
 
