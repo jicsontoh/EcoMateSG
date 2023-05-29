@@ -10,6 +10,9 @@ Some of the features include:
 
 
 ## Screenshots of our application
+![Login Page](/assets/login_page.jpg)
+![Failed QR Scan](/assets/failed_qr.jpg)
+![Successful QR Scan](/assets/successful_qr.jpg)
 
 ## How to get started
 ### For Android
