@@ -16,6 +16,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   static const textColour = Color.fromARGB(255, 44, 82, 105);
+  final int maxPoints = 100;
+  double currPoints = 69;
   double deviceHeight(BuildContext context) => MediaQuery.of(context).size.height;
   double deviceWidth(BuildContext context) => MediaQuery.of(context).size.width;
   final GlobalKey<AnimatedCircularChartState> _chartKey = new GlobalKey<AnimatedCircularChartState>();
@@ -42,18 +44,64 @@ class _HomePageState extends State<HomePage> {
         title: 'Home Page',
         home: Scaffold(
           appBar: AppBar(
-            title: const Text('EcoMateSG',
-              style: TextStyle(color: textColour,
-                fontFamily: 'NotoSans')),
-            backgroundColor: Colors.white,
+            title: const Text(
+              'EcoMateSG',
+              style: TextStyle(color: textColour, fontFamily: 'NotoSans'),
+            ),
+            backgroundColor: Colors.cornsilk,
+            actions: [
+              PopupMenuButton(
+                icon: Icon(
+                  Icons.more_vert,
+                  color: Colors.black,
+                ),
+                itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+                  PopupMenuItem(
+                    child: ListTile(
+                      leading: Icon(Icons.settings),
+                      title: Text('Settings'),
+                    ),
+                    onTap: () {
+                      // To be implemented
+                    },
+                  ),
+                  PopupMenuItem(
+                    child: ListTile(
+                      leading: Icon(Icons.person),
+                      title: Text('Profile'),
+                    ),
+                    onTap: () {
+                      // To be implemented
+                    },
+                  ),
+                  PopupMenuItem(
+                    child: ListTile(
+                      leading: Icon(Icons.support),
+                      title: Text('Support'),
+                    ),
+                    onTap: () {
+                      // To be implemented
+                    },
+                  ),
+                  PopupMenuItem(
+                    child: ListTile(
+                      leading: Icon(Icons.logout),
+                      title: Text('Logout'),
+                    ),
+                    onTap: _logout,
+                  ),
+                ],
+              ),
+            ],
           ),
           body: buildContent(),
-        ));
+        )
+    );
   }
 
   Widget buildContent() {
     return Container(
-      color: Colors.white,
+      color: Colors.teaGreen,
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -73,6 +121,7 @@ class _HomePageState extends State<HomePage> {
             decoration: BoxDecoration(
               border: Border.all(width: 2, color: Colors.black38),
               borderRadius: const BorderRadius.all(Radius.circular(20)),
+              color: Colors.papayaWhip
             ),
             width: deviceWidth(context) * 0.9,
             height: deviceHeight(context) * 0.28,
@@ -124,10 +173,28 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 ),
-                CircularProgressIndicator(
-                  value: 0.5,
-                  semanticsLabel: 'Circular progress indicator',
-                ),
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    SizedBox(
+                      width: 120,
+                      height: 120,
+                      child: CircularProgressIndicator(
+                        value: currPoints / 100,
+                        semanticsLabel: 'Circular progress indicator',
+                      ),
+                    ),
+                    Center(
+                      child: Text(
+                        '${currPoints.toInt()}/$maxPoints', // Replace with the desired text
+                        style: TextStyle(
+                          fontSize: 24, // Adjust the font size as needed
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                )
               ]
             ),
           ),
@@ -152,6 +219,7 @@ class _HomePageState extends State<HomePage> {
               },
               child: Container(
                 decoration: BoxDecoration(
+                  color: Colors.papayaWhip,
                   border: Border.all(width: 2, color: Colors.black38),
                   borderRadius: const BorderRadius.all(Radius.circular(20)),
                 ),
@@ -193,6 +261,7 @@ class _HomePageState extends State<HomePage> {
               },
               child: Container(
                 decoration: BoxDecoration(
+                  color: Colors.papayaWhip,
                   border: Border.all(width: 2, color: Colors.black38),
                   borderRadius: const BorderRadius.all(Radius.circular(20)),
                 ),
@@ -229,10 +298,6 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-        ElevatedButton(
-          onPressed: _logout,
-          child: const Text('Logout'),
-        )
       ]),
     );
   }
