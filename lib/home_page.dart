@@ -86,6 +86,7 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: App.cornsilk,
             actions: [
               PopupMenuButton(
+                color: App.cornsilk,
                 icon: Icon(
                   Icons.more_vert,
                   color: Colors.black,
@@ -93,8 +94,8 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (BuildContext context) => <PopupMenuEntry>[
                   PopupMenuItem(
                     child: ListTile(
-                      leading: Icon(Icons.settings),
-                      title: Text('Settings'),
+                      leading: Icon(Icons.settings, color: textColour,),
+                      title: Text('Settings', style: TextStyle(color: textColour, fontFamily: 'NotoSans'),),
                     ),
                     onTap: () {
                       // To be implemented
@@ -102,8 +103,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   PopupMenuItem(
                     child: ListTile(
-                      leading: Icon(Icons.person),
-                      title: Text('Profile'),
+                      leading: Icon(Icons.person, color: textColour,),
+                      title: Text('Profile', style: TextStyle(color: textColour, fontFamily: 'NotoSans'),),
                     ),
                     onTap: () {
                       // To be implemented
@@ -111,8 +112,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   PopupMenuItem(
                     child: ListTile(
-                      leading: Icon(Icons.support),
-                      title: Text('Support'),
+                      leading: Icon(Icons.support, color: textColour,),
+                      title: Text('Support', style: TextStyle(color: textColour, fontFamily: 'NotoSans'),),
                     ),
                     onTap: () {
                       // To be implemented
@@ -120,8 +121,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   PopupMenuItem(
                     child: ListTile(
-                      leading: Icon(Icons.logout),
-                      title: Text('Logout'),
+                      leading: Icon(Icons.logout, color: textColour,),
+                      title: Text('Logout', style: TextStyle(color: textColour, fontFamily: 'NotoSans'),),
                     ),
                     onTap: _logout,
                   ),
