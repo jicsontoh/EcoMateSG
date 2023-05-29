@@ -14,9 +14,9 @@ Some of the features include:
 ![Demo Video](/assets/Demo.mp4)
 
 ## Screenshots of our application
-| Login Page                            | Signup Page                            | Home Page                             |
-|---------------------------------------|----------------------------------------|---------------------------------------|
-| ![Login Page](/assets/login_page.jpg) | ![Login Page](/assets/signup_page.jpg) | ![Login Page](/assets/login_page.jpg) |
+| Login Page                            | Signup Page                             | Home Page                           |
+|---------------------------------------|-----------------------------------------|-------------------------------------|
+| ![Login Page](/assets/login_page.jpg) | ![Signup Page](/assets/signup_page.jpg) | ![Home Page](/assets/home_page.jpg) |
 
 
 | Successful QR Page                               | Failed QR Page                           |
