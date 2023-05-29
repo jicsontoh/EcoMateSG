@@ -3,6 +3,7 @@ import 'package:ecomatesg/sign_up.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import 'FirebaseHelper/firestore.dart';
 import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -18,6 +19,12 @@ class _LoginPageState extends State<LoginPage> {
 
   String _errorMessage = '';
 
+  Future<double> fetchUserCurrPoints() async {
+    Map<String, dynamic>? user = await FirestoreCollectionHelper.getLoggedInUser();
+
+    return (user?["PlasticBagSavings"] + user?["TransportSavings"]) ?? 0;
+  }
+
   Future<void> _login(BuildContext context) async {
     String email = _emailController.text;
     String password = _passwordController.text;
@@ -28,11 +35,13 @@ class _LoginPageState extends State<LoginPage> {
         password: password,
       );
 
+      double currPoints = await fetchUserCurrPoints(); // in signin but not in signout
+
       // Authentication successful, navigate to the home page
       if (context.mounted) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const HomePage()),
+          MaterialPageRoute(builder: (context) => HomePage(currPoints: currPoints)), // signin
         );
       }
 

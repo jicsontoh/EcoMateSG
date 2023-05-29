@@ -34,7 +34,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => const HomePage()),
+            MaterialPageRoute(builder: (context) => const HomePage(currPoints: 0.0)),
           );
         }
       } on FirebaseAuthException catch (e) {
