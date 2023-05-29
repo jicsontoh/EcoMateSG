@@ -165,7 +165,7 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                     SizedBox(
-                      height: deviceHeight(context) * 0.03,
+                      height: deviceHeight(context) * 0.05,
                     ),
                     const Text('Total Points:',
                         style: TextStyle(color: textColour,
@@ -189,8 +189,8 @@ class _HomePageState extends State<HomePage> {
                   alignment: Alignment.center,
                   children: [
                     SizedBox(
-                      width: 120,
-                      height: 120,
+                      width: deviceWidth(context) * 0.3,
+                      height: deviceWidth(context) * 0.3,
                       child: CircularProgressIndicator(
                         value: currPoints / 100,
                         semanticsLabel: 'Circular progress indicator',
