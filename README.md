@@ -11,7 +11,7 @@ Some of the features include:
 - Encouraging the use of public transport instead of private vehicles
 
 ## Video Demonstration of our application
-
+![Demo Video](/assets/Demo.mp4)
 
 ## Screenshots of our application
 | Login Page                            | Signup Page                            | Home Page                             |
