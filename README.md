@@ -11,10 +11,8 @@ Some of the features include:
 - Encouraging the use of public transport instead of private vehicles
 
 ## Video Demonstration of our application
-![Demo Video](/assets/Demo.mp4)
 
 ![Demo Video](https://github.com/notle1706/EcoMateSG/assets/72089201/cf5fe18e-fcb4-46ea-bc44-7c1f5b273be2)
-
 
 
 ## Screenshots of our application
