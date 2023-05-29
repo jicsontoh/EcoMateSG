@@ -33,7 +33,7 @@ class FirestoreCollectionHelper {
     }
   }
 
-  static Future<void> updateUserPoints(int pointsToAdd) async {
+  static Future<void> addPlasticBagPoints(int pointsToAdd) async {
     User? user = FirebaseAuth.instance.currentUser;
 
     if (user != null) {
@@ -54,6 +54,31 @@ class FirestoreCollectionHelper {
         }
       } catch (e) {
           print('Error updating points: $e');
+      }
+    }
+  }
+
+  static Future<void> addTransportPoints(int pointsToAdd) async {
+    User? user = FirebaseAuth.instance.currentUser;
+
+    if (user != null) {
+      String uid = user.uid.toString();
+
+      try {
+        final querySnapshot = await users.where('UID', isEqualTo: uid).get();
+
+        if (querySnapshot.docs.isNotEmpty) {
+          final userRef = querySnapshot.docs.first.reference;
+
+          final currentPoints =
+              (querySnapshot.docs.first.data() as Map<String,
+                  dynamic>?)?['TransportSavings'] ?? 0;
+
+          await userRef.update(
+              {'TransportSavings': currentPoints + pointsToAdd});
+        }
+      } catch (e) {
+        print('Error updating points: $e');
       }
     }
   }

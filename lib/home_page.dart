@@ -26,8 +26,12 @@ class _HomePageState extends State<HomePage> {
   final GlobalKey<AnimatedCircularChartState> _chartKey = new GlobalKey<AnimatedCircularChartState>();
 
 
-  Future<void> _addPoints() async {
-    await FirestoreCollectionHelper.updateUserPoints(10);
+  Future<void> _addPlasticBagPoints(int pointsToAdd) async {
+    await FirestoreCollectionHelper.addPlasticBagPoints(pointsToAdd);
+  }
+
+  Future<void> _addTransportPoints(int pointsToAdd) async {
+    await FirestoreCollectionHelper.addTransportPoints(pointsToAdd);
   }
 
   Future<void> _logout() async {
