@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 
 import 'firebase_options.dart';
 
+
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -17,6 +19,12 @@ void main() async {
 }
 
 class App extends StatelessWidget {
+
+  static const Color cornsilk = Color(0xFFfefae0);
+  static const Color teaGreen = Color(0xFFCCD5AE);
+  static const Color buff = Color(0xFFD4A373);
+  static const Color papayaWhip = Color(0xfffaedcd);
+
   // const App({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {

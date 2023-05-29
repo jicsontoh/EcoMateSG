@@ -7,6 +7,8 @@ import 'dart:math';
 import 'package:circular_chart_flutter/circular_chart_flutter.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
+import 'main.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -48,7 +50,7 @@ class _HomePageState extends State<HomePage> {
               'EcoMateSG',
               style: TextStyle(color: textColour, fontFamily: 'NotoSans'),
             ),
-            backgroundColor: Colors.cornsilk,
+            backgroundColor: App.cornsilk,
             actions: [
               PopupMenuButton(
                 icon: Icon(
@@ -101,7 +103,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget buildContent() {
     return Container(
-      color: Colors.teaGreen,
+      color: App.teaGreen,
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -121,7 +123,7 @@ class _HomePageState extends State<HomePage> {
             decoration: BoxDecoration(
               border: Border.all(width: 2, color: Colors.black38),
               borderRadius: const BorderRadius.all(Radius.circular(20)),
-              color: Colors.papayaWhip
+              color: App.papayaWhip
             ),
             width: deviceWidth(context) * 0.9,
             height: deviceHeight(context) * 0.28,
@@ -219,7 +221,7 @@ class _HomePageState extends State<HomePage> {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.papayaWhip,
+                  color: App.papayaWhip,
                   border: Border.all(width: 2, color: Colors.black38),
                   borderRadius: const BorderRadius.all(Radius.circular(20)),
                 ),
@@ -261,7 +263,7 @@ class _HomePageState extends State<HomePage> {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.papayaWhip,
+                  color: App.papayaWhip,
                   border: Border.all(width: 2, color: Colors.black38),
                   borderRadius: const BorderRadius.all(Radius.circular(20)),
                 ),

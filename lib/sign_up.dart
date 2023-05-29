@@ -1,3 +1,4 @@
+import 'package:ecomatesg/main.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -60,9 +61,9 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teaGreen,
+      backgroundColor: App.teaGreen,
       appBar: AppBar(
-        backgroundColor: Colors.cornsilk,
+        backgroundColor: App.cornsilk,
         title: const Text('Sign Up'),
       ),
       body: Padding(
@@ -109,7 +110,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 _register(context);
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.papayaWhip,
+                primary: App.papayaWhip,
               ),
               child: const Text('Sign Up'),
             ),
