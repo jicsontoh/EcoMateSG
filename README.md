@@ -14,12 +14,25 @@ in carbon emission as compared to private vehicle.
 
 ## Video Demonstration of our application
 
+![Demo Video](https://github.com/notle1706/EcoMateSG/assets/72089201/cf5fe18e-fcb4-46ea-bc44-7c1f5b273be2)
+
 
 ## Screenshots of our application
+| Login Page                            | Signup Page                             | Home Page                           |
+|---------------------------------------|-----------------------------------------|-------------------------------------|
+| ![Login Page](/assets/login_page.jpg) | ![Signup Page](/assets/signup_page.jpg) | ![Home Page](/assets/home_page.jpg) |
 
 
-Sample QR Code for testing:
+| Successful QR Page                               | Failed QR Page                           |
+|--------------------------------------------------|------------------------------------------|
+| ![Successful QR Scan](/assets/successful_qr.jpg) | ![Failed QR Scan](/assets/failed_qr.jpg) |      
 
+
+## Sample QR Code for testing:
+
+| 25 Points QR Code                      | 10 Points QR Code                      |
+|----------------------------------------|----------------------------------------|
+| ![25 Points](/assets/25_points_qr.jpg) | ![10 Points](/assets/10_points_qr.jpg) |
 
 ## How to get started
 ### For Android
