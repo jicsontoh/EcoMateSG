@@ -33,7 +33,7 @@ class App extends StatelessWidget {
       theme:  ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: LoginPage(),
+      home: HomePage(),
     );
   }
 }
