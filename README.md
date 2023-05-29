@@ -1,5 +1,6 @@
 # EcoMateSG
-EcoMateSG is a simple and easy to use mobile application that offer features to help users to make environmentally conscious choices and adopt a more sustainable lifestyle. 
+EcoMateSG is a simple and easy to use mobile application that offer features to help users make environmentally conscious choices and adopt a more sustainable lifestyle. 
+
 EcoMateSG seek to track and calculate how much carbon emission the user can reduce when making environmentally conscious decisions such as using their own recycle bag and not use plastic bags.
 The app then stores these information and converts them to a point system which the user can keep track of.
 
@@ -33,8 +34,6 @@ Some of the features include:
 ### For Android
 Download the apk file from our releases
 
-### For iOS
-Download the ipa file from our releases
 
 ### From Flutter Emulator
 Requirements: 
@@ -47,7 +46,7 @@ Clone our source code and open it in your chosen IDE
 git clone https://github.com/jicsontoh/EcoMateSG.git
 ```
 
-Open your emulator or attached a physical mobile device to your computer
+Open your emulator or attach a physical mobile device to your computer
 
 Run the flutter application
 ```
