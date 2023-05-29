@@ -16,20 +16,45 @@ class FirestoreCollectionHelper {
     });
   }
 
-    static Future<Map<String, dynamic>?> getLoggedInUser() async {
-      User? user = FirebaseAuth.instance.currentUser;
+  static Future<Map<String, dynamic>?> getLoggedInUser() async {
+    User? user = FirebaseAuth.instance.currentUser;
 
-      if (user != null) {
-        String uid = user.uid.toString();
+    if (user != null) {
+      String uid = user.uid.toString();
 
-        users.where("UID", isEqualTo: uid).get().then(
-            (querySnapshot) {
-              return querySnapshot.docs[0];
-            },
-          onError: (e) => print("Error completing: $e")
-        );
-      } else {
-        return {}; // Return an empty map or null as per your requirement
+      users.where("UID", isEqualTo: uid).get().then(
+          (querySnapshot) {
+            return querySnapshot.docs[0];
+          },
+        onError: (e) => print("Error completing: $e")
+      );
+    } else {
+      return {};
+    }
+  }
+
+  static Future<void> updateUserPoints(int pointsToAdd) async {
+    User? user = FirebaseAuth.instance.currentUser;
+
+    if (user != null) {
+      String uid = user.uid.toString();
+
+      try {
+        final querySnapshot = await users.where('UID', isEqualTo: uid).get();
+
+        if (querySnapshot.docs.isNotEmpty) {
+          final userRef = querySnapshot.docs.first.reference;
+
+          final currentPoints =
+              (querySnapshot.docs.first.data() as Map<String,
+                  dynamic>?)?['PlasticBagSavings'] ?? 0;
+
+          await userRef.update(
+              {'PlasticBagSavings': currentPoints + pointsToAdd});
+        }
+      } catch (e) {
+          print('Error updating points: $e');
       }
     }
+  }
 }

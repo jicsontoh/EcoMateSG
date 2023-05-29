@@ -1,3 +1,4 @@
+import 'package:ecomatesg/FirebaseHelper/firestore.dart';
 import 'package:ecomatesg/Icons/change_color.dart';
 import 'package:ecomatesg/scan_qr.dart';
 import 'package:ecomatesg/sign_in.dart';
@@ -24,6 +25,10 @@ class _HomePageState extends State<HomePage> {
   double deviceWidth(BuildContext context) => MediaQuery.of(context).size.width;
   final GlobalKey<AnimatedCircularChartState> _chartKey = new GlobalKey<AnimatedCircularChartState>();
 
+
+  Future<void> _addPoints() async {
+    await FirestoreCollectionHelper.updateUserPoints(10);
+  }
 
   Future<void> _logout() async {
     try {
