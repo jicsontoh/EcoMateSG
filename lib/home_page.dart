@@ -10,35 +10,33 @@ import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 import 'main.dart';
 
-// class HomePage extends StatefulWidget {
-//   const HomePage({super.key, required this.currPoints});
-//   // const HomePage({Key? key}) : super(key: key);
-//
-//   final double currPoints;
-//
-//   @override
-//   State<HomePage> createState() => _HomePageState(currPoints);
-// }
-
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key, required this.currPoints}) : super(key: key);
+  const HomePage({Key? key, this.currPoints, this.name }) : super(key: key);
 
-  final double currPoints;
+  final double? currPoints;
+  final String? name;
 
   @override
-  State<HomePage> createState() => _HomePageState(currPoints);
+  State<HomePage> createState() => _HomePageState(currPoints, name);
 }
 
 class _HomePageState extends State<HomePage> {
   static const textColour = Color.fromARGB(255, 44, 82, 105);
   final int maxPoints = 100;
   double currPoints = 0;
+  String loggedInUserName = "";
   double deviceHeight(BuildContext context) => MediaQuery.of(context).size.height;
   double deviceWidth(BuildContext context) => MediaQuery.of(context).size.width;
   final GlobalKey<AnimatedCircularChartState> _chartKey = new GlobalKey<AnimatedCircularChartState>();
 
-  _HomePageState(double points) {
-    currPoints = points;
+  _HomePageState(double? points, String? name) {
+    if (points != null) {
+      currPoints = points;
+    }
+
+    if (name != null) {
+      loggedInUserName = name;
+    }
   }
 
   Future<void> fetchUserCurrPoints() async {
@@ -48,15 +46,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  Future<void> _addPlasticBagPoints(int pointsToAdd) async {
-    await FirestoreCollectionHelper.addPlasticBagPoints(pointsToAdd);
-    await fetchUserCurrPoints();
-  }
 
-  Future<void> _addTransportPoints(int pointsToAdd) async {
-    await FirestoreCollectionHelper.addTransportPoints(pointsToAdd);
-    await fetchUserCurrPoints();
-  }
 
   Future<void> _logout() async {
     try {
@@ -145,7 +135,7 @@ class _HomePageState extends State<HomePage> {
               margin: EdgeInsets.only(top: deviceHeight(context) * 0.02,
                 left: deviceWidth(context) * 0.04,
               ),
-              child: const Text('Hello, welcome back!',
+              child: Text('Hello $loggedInUserName!',
                   style: TextStyle(
                       fontSize: 22,
                       color: textColour,

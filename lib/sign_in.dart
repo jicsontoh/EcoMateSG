@@ -19,12 +19,6 @@ class _LoginPageState extends State<LoginPage> {
 
   String _errorMessage = '';
 
-  Future<double> fetchUserCurrPoints() async {
-    Map<String, dynamic>? user = await FirestoreCollectionHelper.getLoggedInUser();
-
-    return (user?["PlasticBagSavings"] + user?["TransportSavings"]) ?? 0;
-  }
-
   Future<void> _login(BuildContext context) async {
     String email = _emailController.text;
     String password = _passwordController.text;
@@ -35,14 +29,18 @@ class _LoginPageState extends State<LoginPage> {
         password: password,
       );
 
-      double currPoints = await fetchUserCurrPoints(); // in signin but not in signout
+      Map<String, dynamic>? user = await FirestoreCollectionHelper.getLoggedInUser();
 
-      // Authentication successful, navigate to the home page
-      if (context.mounted) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => HomePage(currPoints: currPoints)), // signin
-        );
+      if (user != null) {
+        int currPoints = user["PlasticBagSavings"] + user["TransportSavings"];
+
+        // Authentication successful, navigate to the home page
+        if (context.mounted) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => HomePage(currPoints: currPoints.toDouble(), name: user["Name"])),
+          );
+        }
       }
 
     } catch (e) {

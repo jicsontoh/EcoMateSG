@@ -22,15 +22,12 @@ class FirestoreCollectionHelper {
     if (user != null) {
       String uid = user.uid.toString();
 
-      users.where("UID", isEqualTo: uid).get().then(
-          (querySnapshot) {
-            return querySnapshot.docs[0];
-          },
-        onError: (e) => print("Error completing: $e")
-      );
-    } else {
-      return {};
+      QuerySnapshot snapshot = await users.where("UID", isEqualTo: uid).get();
+
+      return snapshot.docs[0].data() as Map<String, dynamic>?;
     }
+
+    return null;
   }
 
   static Future<void> addPlasticBagPoints(int pointsToAdd) async {
