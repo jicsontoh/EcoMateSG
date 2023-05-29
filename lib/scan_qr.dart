@@ -32,8 +32,22 @@ class _ScanQRPageState extends State<ScanQRPage> {
     await FirestoreCollectionHelper.addPlasticBagPoints(pointsToAdd);
   }
 
-  Future<void> _addTransportPoints(int pointsToAdd) async {
-    await FirestoreCollectionHelper.addTransportPoints(pointsToAdd);
+  Future<void> renavigate(BuildContext context) async {
+    Map<String, dynamic>? user = await FirestoreCollectionHelper
+        .getLoggedInUser();
+
+    if (user != null) {
+      int currPoints = user["PlasticBagSavings"] + user["TransportSavings"];
+
+      // Authentication successful, navigate to the home page
+      if (context.mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) =>
+              HomePage(currPoints: currPoints.toDouble())),
+        );
+      }
+    }
   }
 
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
@@ -73,9 +87,7 @@ class _ScanQRPageState extends State<ScanQRPage> {
                       fontFamily: 'NotoSans')),
               actions: <Widget>[
                 TextButton(
-                  onPressed: () => Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => const HomePage()),
-                  ),
+                  onPressed: () => renavigate(context),
                   child: const Text('Back home'),
                 ),
               ],

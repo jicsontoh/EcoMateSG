@@ -11,28 +11,42 @@ import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 import 'main.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key, this.currPoints, this.name }) : super(key: key);
+
+  final double? currPoints;
+  final String? name;
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState(currPoints, name);
 }
 
 class _HomePageState extends State<HomePage> {
   static const textColour = Color.fromARGB(255, 44, 82, 105);
   final int maxPoints = 100;
-  double currPoints = 69;
+  double currPoints = 0;
+  String loggedInUserName = "";
   double deviceHeight(BuildContext context) => MediaQuery.of(context).size.height;
   double deviceWidth(BuildContext context) => MediaQuery.of(context).size.width;
   final GlobalKey<AnimatedCircularChartState> _chartKey = new GlobalKey<AnimatedCircularChartState>();
 
+  _HomePageState(double? points, String? name) {
+    if (points != null) {
+      currPoints = points;
+    }
 
-  Future<void> _addPlasticBagPoints(int pointsToAdd) async {
-    await FirestoreCollectionHelper.addPlasticBagPoints(pointsToAdd);
+    if (name != null) {
+      loggedInUserName = name;
+    }
   }
 
-  Future<void> _addTransportPoints(int pointsToAdd) async {
-    await FirestoreCollectionHelper.addTransportPoints(pointsToAdd);
+  Future<void> fetchUserCurrPoints() async {
+    Map<String, dynamic>? user = await FirestoreCollectionHelper.getLoggedInUser();
+    setState(() {
+      currPoints = (user?["PlasticBagSavings"] + user?["TransportSavings"]) ?? 0;
+    });
   }
+
+
 
   Future<void> _logout() async {
     try {
@@ -121,7 +135,7 @@ class _HomePageState extends State<HomePage> {
               margin: EdgeInsets.only(top: deviceHeight(context) * 0.02,
                 left: deviceWidth(context) * 0.04,
               ),
-              child: const Text('Hello, welcome back!',
+              child: Text('Hello $loggedInUserName!',
                   style: TextStyle(
                       fontSize: 22,
                       color: textColour,
@@ -192,13 +206,13 @@ class _HomePageState extends State<HomePage> {
                       width: deviceWidth(context) * 0.3,
                       height: deviceWidth(context) * 0.3,
                       child: CircularProgressIndicator(
-                        value: currPoints / 100,
+                        value: currPoints / maxPoints,
                         semanticsLabel: 'Circular progress indicator',
                       ),
                     ),
                     Center(
                       child: Text(
-                        '${currPoints.toInt()}/$maxPoints', // Replace with the desired text
+                        '${currPoints}/${maxPoints}', // Replace with the desired text
                         style: TextStyle(
                           fontSize: 24, // Adjust the font size as needed
                           fontWeight: FontWeight.bold,

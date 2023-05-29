@@ -3,6 +3,7 @@ import 'package:ecomatesg/sign_up.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import 'FirebaseHelper/firestore.dart';
 import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -28,12 +29,18 @@ class _LoginPageState extends State<LoginPage> {
         password: password,
       );
 
-      // Authentication successful, navigate to the home page
-      if (context.mounted) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const HomePage()),
-        );
+      Map<String, dynamic>? user = await FirestoreCollectionHelper.getLoggedInUser();
+
+      if (user != null) {
+        int currPoints = user["PlasticBagSavings"] + user["TransportSavings"];
+
+        // Authentication successful, navigate to the home page
+        if (context.mounted) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => HomePage(currPoints: currPoints.toDouble(), name: user["Name"])),
+          );
+        }
       }
 
     } catch (e) {
