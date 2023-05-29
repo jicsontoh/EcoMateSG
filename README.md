@@ -11,7 +11,6 @@ Some of the features include:
 
 ## Screenshots of our application
 
-
 ## How to get started
 ### For Android
 Download the apk file from our releases
