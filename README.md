@@ -6,7 +6,7 @@ The app then stores these information and converts them to a point system which 
 
 This application is available for both android and ios devices.
 
-Some of the features include:
+## Our features:
 - Scan QR Code on receipt to track how many plastic bags saved. This will then be converted to points and will be added to the user's point system. This helps to encourage users to use 
 their own recycle bag when shopping for groceries and reduce the need for plastic bags.
 - To encourage the use of public transport, we will have QR codes pasted on bus stops/train stations which users can scan to track the distance of their travel and how much reduction
@@ -47,14 +47,14 @@ Requirements:
 
 Clone our source code and open it in your chosen IDE
 ```
-git clone https://github.com/jicsontoh/EcoMateSG.git
+$ git clone https://github.com/jicsontoh/EcoMateSG.git
 ```
 
 Open your emulator or attach a physical mobile device to your computer
 
 Run the flutter application
 ```
-flutter run
+$ flutter run
 ```
 
 ## Future Implementations
